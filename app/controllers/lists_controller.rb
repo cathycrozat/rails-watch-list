@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  before_action :set_list, only: %i[ show edit destroy]
+  before_action :set_list, only: [ :show, :destroy]
 
   # GET /lists
   def index
@@ -9,6 +9,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   def show
+    @bookmark = Bookmark.new
   end
 
   # GET /lists/new
@@ -25,7 +26,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
-      redirect_to @list, notice: "list was successfully created."
+      redirect_to list_path(@list), notice: "list was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,7 +47,7 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 
 end

@@ -5,6 +5,10 @@
         <strong>Name:</strong>
         <%= list.name %>
       </p>
+        <% if list.photo.attached? %>
+
+          <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <p>
         <%= link_to "Show this list", list %>
       </p>

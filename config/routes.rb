@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :lists do
-      resources :bookmarks, only: [:destroy], as: 'delete_bookmark'
-      resources :bookmarks, except: [:destroy]
+    resources :bookmarks, except: [:destroy]
   end
-
+  resources :bookmarks, only: [:destroy], as: 'delete_bookmark'
 end
