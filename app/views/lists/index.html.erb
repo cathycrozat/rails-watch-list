@@ -1,0 +1,53 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="fa-solid fa-film"></i>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">My lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">New list</a>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.lesechos.com/api/v1/images/view/62c696f7cde6181c2d44dafb/1280x720-webp/0701967133971-web-tete.webp);">
+  <div class="container">
+    <h1>Save any kind of movies</strong>!</h1>
+  </div>
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end me-md-2 mt-5">
+<p><%= link_to "Create a movie list", new_list_path, class: "btn btn-primary pull-right"%></p>
+</div>
+
+<div class="container">
+  <div class="row">
+   <h1>My lists</h1>
+  </div>
+  <div class="cards">
+    <div id="lists">
+      <% @lists.each do |list| %>
+        <%= render list %>
+      <% end %>
+    </div>
+  </div>
+</div>
