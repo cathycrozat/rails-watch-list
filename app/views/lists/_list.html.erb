@@ -1,17 +1,10 @@
-<div class="card col me-3" style="width: 20rem;">
-  <div class="card-category">
-    <div id="<%= dom_id list %>">
-      <p>
-        <strong>Name:</strong>
-        <%= list.name %>
-      </p>
-        <% if list.photo.attached? %>
-
-          <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-      <p>
-        <%= link_to "Show this list", list %>
-      </p>
+<div class="co-12 col-sm-6 col-md-4 mb-3">
+  <%= link_to list_path(list), class:"text-decoration-none" do %>
+    <div class="card-category bg-white rounded shadow h-100 mb-4 ml-4" data-aos="zoom-in">
+      <p><%= list.name %></p>
+      <% if list.photo.attached? %>
+        <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
